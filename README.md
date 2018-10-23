@@ -1,8 +1,10 @@
-# Forge Python Data Management API
+# Forge Python API Client
 
 **About**
 
-Python library for Data Management API.
+Python library for Forge API.
+- Data Management Api
+- Model Derivatives Api
 
 **Author**
 
@@ -19,20 +21,20 @@ harasymczuk@contecht.eu
 
 ```
 git clone https://github.com/dmh126/forge-api-python-client.git
-cd forge-python-data-management-api
+cd forge-api-python-client
 pip install .
 ```
 
 **How to**
 
 ```
-from forge_api_client import ClientApi
+from forge_api_client import ApiClient
 
 client_id = 'your_client_id'
 client_secret = 'client_secret'
 scope = 'bucket:read' # ex. 'data:read'
 
-fac = ClientApi()
+fac = ApiClient()
 
 fac.authClientTwoLegged(client_id, client_secret, scope=scope)
 
@@ -43,7 +45,7 @@ print( buckets )
 
 **Documentation**
 
-Group | Method | Parameters | Endpoint | Description
+Group | Method | Parameters | Endpoint | Note
 ------------ | ------------ | ------------- | ------------- | -------------
 Auth | **authClientTwoLegged** | client_id: string, client_secret: string, scope: string, grant_type: string | /authentication/v1/authenticate |defaults: scope='data:read', grant_type='client_credentials'
 Buckets | **getBuckets** |  | /oss/v2/buckets |  |
@@ -102,7 +104,17 @@ Versions | **getVersionRelationshipsRefs** | project_id: string, version_id: str
 Versions | **patchVersion** | project_id: string, version_id: string, body: dict | /data/v1/projects/:project_id/versions/:version_id ||
 Versions | **postVersion** | project_id: string, body: dict | /data/v1/projects/:project_id/versions ||
 Versions | **postVersionRelationshipsRefs** | project_id: string, version_id: string, body: dict | /data/v1/projects/:project_id/versions/:version_id/relationships/refs ||
+Derivatives | **getFormats** |  | /modelderivative/v2/designdata/formats ||
+Derivatives | **translate** | data: dict | /modelderivative/v2/designdata/job ||
+Derivatives | **postReferences** | urn: string | /modelderivative/v2/designdata/:urn/references ||
+Derivatives | **getThumbnail** | urn: string, region: string | /modelderivative/v2/designdata/:urn/thumbnail ||
+Derivatives | **getManifest** | urn: string, region: string | /modelderivative/v2/designdata/:urn/manifest | defaults: region='US' |
+Derivatives | **deleteManifest** | urn: string, region: string | /modelderivative/v2/designdata/:urn/manifest | defaults: region='US' |
+Derivatives | **getDerivativeManifest** | urn: string, derivative_urn: string, region: string | /modelderivative/v2/designdata/:urn/manifest/:derivativeUrn | defaults: region='US' |
+Derivatives | **getMetadata** | urn: string, region: string | /modelderivative/v2/designdata/:urn/metadata | defaults: region='US' |
+Derivatives | **getModelviewMetadata** | urn: string, guid: string, region: string | /modelderivative/v2/designdata/:urn/metadata/:guid | defaults: region='US' |
+Derivatives | **getModelviewProperties** | urn: string, guid: string, region: string | /modelderivative/v2/designdata/:urn/metadata/:guid/properties | defaults: region='US' |
 
 **TODO**
 
-- Model Derivatives
+- 3 legged authentication

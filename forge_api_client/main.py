@@ -1,16 +1,25 @@
+"""
+AUTHOR: Damian Harasymczuk, Contecht GMBH
+
+CONTACT: harasymczuk@contecht.eu
+
+LICENSE: MIT
+"""
+
 from .authentication import Authentication
-from .formats import Formats
+from .derivatives import Derivatives
 from .buckets import Buckets
 from .hubs import Hubs
 from .projects import Projects
 from .folders import Folders
 from .items import Items
 from .objects import Objects
+from .versions import Versions
 
 class ApiClient(
     Authentication,
     Buckets,
-    Formats,
+    Derivatives,
     Hubs,
     Projects,
     Folders,
