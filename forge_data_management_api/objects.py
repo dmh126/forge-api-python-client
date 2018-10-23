@@ -80,7 +80,7 @@ class Objects:
 
         return post_request(url, data, headers)
 
-    def putSignedResources(self, fpath, id):
+    def putSignedResource(self, fpath, id):
 
         url = 'https://developer.api.autodesk.com/oss/v2/signedresources/%s' % id
 
@@ -91,7 +91,7 @@ class Objects:
 
         return put_request(url, fpath, headers)
 
-    def putSignedResourcesResumable(self, fpath, id, session_id, content_range):
+    def putSignedResourceResumable(self, fpath, id, session_id, content_range):
 
         url = 'https://developer.api.autodesk.com/oss/v2/signedresources/%s' % id
 

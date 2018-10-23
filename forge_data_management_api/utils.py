@@ -3,38 +3,97 @@ import os
 
 def get_request(url, headers={}):
 
-    req = requests.get(url, headers=headers)
+    try:
+        res = requests.get(url, headers=headers)
 
-    return req.json()
+    except requests.exceptions.RequestException as e:
+
+        raise e
+
+    if not res.status_code // 100 == 2:
+
+        res.raise_for_status()
+
+    else:
+        
+        return res.json()
 
 def post_request(url, data, headers={}):
 
-    req = requests.post(url, data=data, headers=headers)
+    try:
 
-    return req.json()
+        res = requests.post(url, data=data, headers=headers)
 
-def patch_request(url, data, headers={}):
+    except requests.exceptions.RequestException as e:
 
-    req = requests.patch(url, data=data, headers=headers)
+        raise e
 
-    return req.json()
+    if not res.status_code // 100 == 2:
 
-def put_request(url, fpath, headers={}):
-
-    if fpath:
-
-        f = open(fpath, 'rb').read()
-
-        req = requests.put(url, data=f, headers=headers)
+        res.raise_for_status()
 
     else:
 
-        req = requests.put(url, headers=headers)
+        return res.json()
 
-    return req.json()
+
+def patch_request(url, data, headers={}):
+
+    try:
+
+        res = requests.patch(url, data=data, headers=headers)
+
+    except requests.exceptions.RequestException as e:
+
+        raise e
+
+    if not res.status_code // 100 == 2:
+
+        res.raise_for_status()
+
+    else:
+
+        return res.json()
+
+def put_request(url, fpath, headers={}):
+
+    try:
+
+        if fpath:
+
+            f = open(fpath, 'rb').read()
+
+            res = requests.put(url, data=f, headers=headers)
+
+        else:
+
+            res = requests.put(url, headers=headers)
+
+    except requests.exceptions.RequestException as e:
+
+        raise e
+
+    if not res.status_code // 100 == 2:
+
+        res.raise_for_status()
+
+    else:
+
+        return res.json()
 
 def delete_request(url, headers={}):
 
-    req = requests.delete(url, headers=headers)
+    try:
+        res = requests.delete(url, headers=headers)
 
-    return req.json()
+    except requests.exceptions.RequestException as e:
+
+        raise e
+
+    if not res.status_code // 100 == 2:
+
+        res.raise_for_status()
+
+    else:
+
+        return res.json()
