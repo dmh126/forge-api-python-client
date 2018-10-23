@@ -1,13 +1,13 @@
 from setuptools import setup
 
-setup(name='forge_data_management_api',
+setup(name='forge_api_client',
       version='0.1',
-      description='Autodesk Forge Data Management API client',
-      url='http://github.com/dmh126/forge-python-data-management-api',
+      description='Autodesk Forge API client for Python',
+      url='http://github.com/dmh126/forge-api-python-client',
       author='Damian Harasymczuk',
       author_email='harasymczuk@contecht.eu',
       license='MIT',
-      packages=['forge_data_management_api'],
+      packages=['forge_api_client'],
       install_requires=[
           'requests',
       ],

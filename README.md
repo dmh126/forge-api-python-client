@@ -18,7 +18,7 @@ harasymczuk@contecht.eu
 **Installation**
 
 ```
-git clone https://github.com/dmh126/forge-python-data-management-api.git
+git clone https://github.com/dmh126/forge-api-python-client.git
 cd forge-python-data-management-api
 pip install .
 ```
@@ -26,17 +26,17 @@ pip install .
 **How to**
 
 ```
-from forge_data_management_api import ClientApi
+from forge_api_client import ClientApi
 
 client_id = 'your_client_id'
 client_secret = 'client_secret'
 scope = 'bucket:read' # ex. 'data:read'
 
-dma = ClientApi()
+fac = ClientApi()
 
-dma.authClientTwoLegged(client_id, client_secret, scope=scope)
+fac.authClientTwoLegged(client_id, client_secret, scope=scope)
 
-buckets = dma.getBuckets()
+buckets = fac.getBuckets()
 
 print( buckets )
 ```
