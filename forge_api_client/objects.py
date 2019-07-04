@@ -1,8 +1,9 @@
-from .utils import get_request, post_request, patch_request, put_request, delete_request
+from .utils import get_request, post_request, patch_request, put_request, delete_request, authorized
 import os
 
 class Objects:
 
+    @authorized
     def putObject(self, fpath, bucket_key, object_name):
 
         url = 'https://developer.api.autodesk.com/oss/v2/buckets/%s/objects/%s' % (bucket_key, object_name)
@@ -15,6 +16,7 @@ class Objects:
 
         return put_request(url, fpath, headers)
 
+    @authorized
     def putObjectResumable(self, fpath, bucket_key, object_name):
 
         url = 'https://developer.api.autodesk.com/oss/v2/buckets/%s/objects/%s/resumable' % (bucket_key, object_name)
@@ -29,6 +31,7 @@ class Objects:
 
         return put_request(url, fpath, headers)
 
+    @authorized
     def getObjectSession(self, bucket_key, object_name, session_id):
 
         url = 'https://developer.api.autodesk.com/oss/v2/buckets/%s/objects/%s/status/%s' % (bucket_key, object_name, session_id)
@@ -39,6 +42,7 @@ class Objects:
 
         return get_request(url, headers)
 
+    @authorized
     def getObjects(self, bucket_key):
 
         url = 'https://developer.api.autodesk.com/oss/v2/buckets/%s/objects' % (bucket_key)
@@ -49,6 +53,7 @@ class Objects:
 
         return get_request(url, headers)
 
+    @authorized
     def getObjectDetails(self, bucket_key, object_name):
 
         url = 'https://developer.api.autodesk.com/oss/v2/buckets/%s/objects/%s/details' % (bucket_key, object_name)
@@ -59,6 +64,7 @@ class Objects:
 
         return get_request(url, headers)
 
+    @authorized
     def getObject(self, bucket_key, object_name):
 
         url = 'https://developer.api.autodesk.com/oss/v2/buckets/%s/objects/%s' % (bucket_key, object_name)
@@ -69,6 +75,7 @@ class Objects:
 
         return get_request(url, headers)
 
+    @authorized
     def postObjectSigned(self, data, bucket_key, object_name):
 
         url = 'https://developer.api.autodesk.com/oss/v2/buckets/%s/objects/%s/signed' % (bucket_key, object_name)
@@ -80,6 +87,7 @@ class Objects:
 
         return post_request(url, data, headers)
 
+    @authorized
     def putSignedResource(self, fpath, id):
 
         url = 'https://developer.api.autodesk.com/oss/v2/signedresources/%s' % id
@@ -91,6 +99,7 @@ class Objects:
 
         return put_request(url, fpath, headers)
 
+    @authorized
     def putSignedResourceResumable(self, fpath, id, session_id, content_range):
 
         url = 'https://developer.api.autodesk.com/oss/v2/signedresources/%s' % id
@@ -103,6 +112,7 @@ class Objects:
 
         return put_request(url, fpath, headers)
 
+    @authorized
     def getSignedResource(self, id):
 
         url = 'https://developer.api.autodesk.com/oss/v2/signedresources/%s' % id
@@ -113,6 +123,7 @@ class Objects:
 
         return get_request(url, headers)
 
+    @authorized
     def deleteSignedResource(self, id):
 
         url = 'https://developer.api.autodesk.com/oss/v2/signedresources/%s' % id
@@ -123,6 +134,7 @@ class Objects:
 
         return delete_request(url, headers)
 
+    @authorized
     def copyObject(self, bucket_key, object_name, new_name):
 
         url = 'https://developer.api.autodesk.com/oss/v2/buckets/%s/objects/%s/copyto/%s' % (bucket_key, object_name, new_name)
@@ -135,6 +147,7 @@ class Objects:
 
         return put_request(url, fpath, headers)
 
+    @authorized
     def deleteObject(self, bucket_key, object_name):
 
         url = 'https://developer.api.autodesk.com/oss/v2/buckets/%s/objects/%s' % (bucket_key, object_name)

@@ -16,3 +16,7 @@ class Authentication:
         self.access_token = json_object['access_token']
         self.token_type = json_object['token_type']
         self.scope = scope
+
+    def authClientThreeLegged(self, cleint_id, client_secret, redirect_url, grant_type='client_credentials', scope='data:read'):
+
+        pass

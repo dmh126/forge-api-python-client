@@ -4,6 +4,7 @@ import os
 def get_request(url, headers={}):
 
     try:
+        
         res = requests.get(url, headers=headers)
 
     except requests.exceptions.RequestException as e:
@@ -15,7 +16,7 @@ def get_request(url, headers={}):
         res.raise_for_status()
 
     else:
-        
+
         return res.json()
 
 def post_request(url, data, headers={}):
@@ -84,6 +85,7 @@ def put_request(url, fpath, headers={}):
 def delete_request(url, headers={}):
 
     try:
+
         res = requests.delete(url, headers=headers)
 
     except requests.exceptions.RequestException as e:
@@ -97,3 +99,19 @@ def delete_request(url, headers={}):
     else:
 
         return res.json()
+
+
+def authorized(func):
+    """
+    A decorator. Use to check if user has been authorized without calling the API and retrieving errors.
+    """
+    def _authorized(self, *args, **kwargs):
+
+        if not self.access_token:
+
+            raise RuntimeError('No Access Token found. User must be authorized. Please invoke an authentication method first.')
+        else:
+
+            return func(self, *args, **kwargs)
+
+    return _authorized

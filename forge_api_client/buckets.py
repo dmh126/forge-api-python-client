@@ -1,7 +1,8 @@
-from .utils import get_request, post_request
+from .utils import get_request, post_request, authorized
 
 class Buckets:
 
+    @authorized
     def getBuckets(self):
 
         url = 'https://developer.api.autodesk.com/oss/v2/buckets'
@@ -12,7 +13,7 @@ class Buckets:
 
         return get_request(url, headers)
 
-
+    @authorized
     def getBucketDetails(self, bucket_key):
 
         url = 'https://developer.api.autodesk.com/oss/v2/buckets/%s/details' % bucket_key
@@ -22,7 +23,8 @@ class Buckets:
         }
 
         return get_request(url, headers)
-
+        
+    @authorized
     def createBucket(self, bucket_key, allow, policy_key):
 
         url = 'https://developer.api.autodesk.com/oss/v2/buckets'

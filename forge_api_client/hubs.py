@@ -1,7 +1,8 @@
-from .utils import get_request
+from .utils import get_request, authorized
 
 class Hubs:
 
+    @authorized
     def getHubs(self):
 
         url = 'https://developer.api.autodesk.com/project/v1/hubs'
@@ -12,7 +13,7 @@ class Hubs:
 
         return get_request(url, headers)
 
-
+    @authorized
     def getHub(self, hub_id):
 
         url = 'https://developer.api.autodesk.com/project/v1/hubs/%s' % hub_id

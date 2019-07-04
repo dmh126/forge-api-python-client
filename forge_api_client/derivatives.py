@@ -1,7 +1,8 @@
-from .utils import get_request, post_request, delete_request
+from .utils import get_request, post_request, delete_request, authorized
 
 class Derivatives:
 
+    @authorized
     def getFormats(self):
 
         url = 'https://developer.api.autodesk.com/modelderivative/v2/designdata/formats'
@@ -12,6 +13,7 @@ class Derivatives:
 
         return get_request(url, headers)
 
+    @authorized
     def translate(self, data):
 
         url = 'https://developer.api.autodesk.com/modelderivative/v2/designdata/job'
@@ -23,6 +25,7 @@ class Derivatives:
 
         return post_request(url, data, headers)
 
+    @authorized
     def postReferences(self, urn, data):
 
         url = '	https://developer.api.autodesk.com/modelderivative/v2/designdata/%s/references' % urn
@@ -34,6 +37,7 @@ class Derivatives:
 
         return post_request(url, data, headers)
 
+    @authorized
     def getThumbnail(self, urn, region='US'):
 
         if region == 'US':
@@ -50,6 +54,7 @@ class Derivatives:
 
         return get_request(url, headers)
 
+    @authorized
     def getManifest(self, urn, region='US'):
 
         if region == 'US':
@@ -66,6 +71,7 @@ class Derivatives:
 
         return get_request(url, headers)
 
+    @authorized
     def deleteManifest(self, urn, region='US'):
 
         if region == 'US':
@@ -82,6 +88,7 @@ class Derivatives:
 
         return delete_request(url, headers)
 
+    @authorized
     def getDerivativeManifest(self, urn, derivative_urn, region='US'):
 
         if region == 'US':
@@ -98,6 +105,7 @@ class Derivatives:
 
         return get_request(url, headers)
 
+    @authorized
     def getMetadata(self, urn, region='US'):
 
         if region == 'US':
@@ -114,6 +122,7 @@ class Derivatives:
 
         return get_request(url, headers)
 
+    @authorized
     def getModelviewMetadata(self, urn, guid, region='US'):
 
         if region == 'US':
@@ -130,6 +139,7 @@ class Derivatives:
 
         return get_request(url, headers)
 
+    @authorized
     def getModelviewProperties(self, urn, guid, region='US'):
 
         if region == 'US':
