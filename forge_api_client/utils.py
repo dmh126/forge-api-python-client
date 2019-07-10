@@ -4,7 +4,7 @@ import os
 def get_request(url, headers={}):
 
     try:
-        
+
         res = requests.get(url, headers=headers)
 
     except requests.exceptions.RequestException as e:
@@ -109,7 +109,21 @@ def authorized(func):
 
         if not self.access_token:
 
-            raise RuntimeError('No Access Token found. User must be authorized. Please invoke an authentication method first.')
+            raise RuntimeError(
+            """
+            No Access Token found. User must be authorized. Please invoke an authentication method first.
+
+            Example:
+
+            from forge_api_client import ApiClient
+
+            >>> client_id = 'your_client_id'
+            >>> client_secret = 'client_secret'
+            >>> scope = 'bucket:read' # ex. 'data:read'
+            >>> fac = ApiClient()
+            >>> fac.authClientTwoLegged(client_id, client_secret, scope=scope)
+            >>> buckets = fac.getBuckets()
+            """)
         else:
 
             return func(self, *args, **kwargs)

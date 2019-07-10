@@ -1,4 +1,4 @@
-# Forge Python API Client
+# Forge API Python Client
 
 **About**
 
@@ -15,7 +15,7 @@ harasymczuk@contecht.eu
 
 **Requirements**
 
-- Python 3.3
+- Python 3.3+
 
 **Installation**
 
