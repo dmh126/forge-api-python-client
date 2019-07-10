@@ -4,7 +4,7 @@ class Authentication:
 
     def authClientTwoLegged(self, client_id, client_secret, grant_type='client_credentials', scope='data:read'):
 
-        url = 'https://developer.api.autodesk.com/authentication/v1/authenticate'
+        url = self.api_url + '/authentication/v1/authenticate'
         data = {
             'client_id': client_id,
             'client_secret': client_secret,

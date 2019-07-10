@@ -28,6 +28,8 @@ class ApiClient(
     ):
 
     def __init__(self):
+
+        self.api_url = 'https://developer.api.autodesk.com'
         self.access_token = None
         self.token_type = None
         self.scope = None

@@ -5,7 +5,7 @@ class Derivatives:
     @authorized
     def getFormats(self):
 
-        url = 'https://developer.api.autodesk.com/modelderivative/v2/designdata/formats'
+        url = self.api_url + '/modelderivative/v2/designdata/formats'
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -16,7 +16,7 @@ class Derivatives:
     @authorized
     def translate(self, data):
 
-        url = 'https://developer.api.autodesk.com/modelderivative/v2/designdata/job'
+        url = self.api_url + '/modelderivative/v2/designdata/job'
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token),
@@ -28,7 +28,7 @@ class Derivatives:
     @authorized
     def postReferences(self, urn, data):
 
-        url = '	https://developer.api.autodesk.com/modelderivative/v2/designdata/%s/references' % urn
+        url = self.api_url + '/modelderivative/v2/designdata/%s/references' % urn
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token),
@@ -42,11 +42,11 @@ class Derivatives:
 
         if region == 'US':
 
-            url = '	https://developer.api.autodesk.com/modelderivative/v2/designdata/%s/thumbnail' % urn
+            url = self.api_url + '/modelderivative/v2/designdata/%s/thumbnail' % urn
 
         else:
 
-            url = '	https://developer.api.autodesk.com/modelderivative/v2/regions/eu/designdata/%s/thumbnail' % urn
+            url = self.api_url + '/modelderivative/v2/regions/eu/designdata/%s/thumbnail' % urn
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -59,11 +59,11 @@ class Derivatives:
 
         if region == 'US':
 
-            url = '	https://developer.api.autodesk.com/modelderivative/v2/designdata/%s/manifest' % urn
+            url = self.api_url + '/modelderivative/v2/designdata/%s/manifest' % urn
 
         else:
 
-            url = '	https://developer.api.autodesk.com/modelderivative/v2/regions/eu/designdata/%s/manifest' % urn
+            url = self.api_url + '/modelderivative/v2/regions/eu/designdata/%s/manifest' % urn
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -76,11 +76,11 @@ class Derivatives:
 
         if region == 'US':
 
-            url = '	https://developer.api.autodesk.com/modelderivative/v2/designdata/%s/manifest' % urn
+            url = self.api_url + '/modelderivative/v2/designdata/%s/manifest' % urn
 
         else:
 
-            url = '	https://developer.api.autodesk.com/modelderivative/v2/regions/eu/designdata/%s/manifest' % urn
+            url = self.api_url + '/modelderivative/v2/regions/eu/designdata/%s/manifest' % urn
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -93,11 +93,11 @@ class Derivatives:
 
         if region == 'US':
 
-            url = '	https://developer.api.autodesk.com/modelderivative/v2/designdata/%s/manifest/%s' % (urn, derivative_urn)
+            url = self.api_url + '/modelderivative/v2/designdata/%s/manifest/%s' % (urn, derivative_urn)
 
         else:
 
-            url = '	https://developer.api.autodesk.com/modelderivative/v2/regions/eu/designdata/%s/manifest/%s' % (urn, derivative_urn)
+            url = self.api_url + '/modelderivative/v2/regions/eu/designdata/%s/manifest/%s' % (urn, derivative_urn)
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -110,11 +110,11 @@ class Derivatives:
 
         if region == 'US':
 
-            url = '	https://developer.api.autodesk.com/modelderivative/v2/designdata/%s/metadata' % urn
+            url = self.api_url + '/modelderivative/v2/designdata/%s/metadata' % urn
 
         else:
 
-            url = '	https://developer.api.autodesk.com/modelderivative/v2/regions/eu/designdata/%s/metadata' % urn
+            url = self.api_url + '/modelderivative/v2/regions/eu/designdata/%s/metadata' % urn
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -127,11 +127,11 @@ class Derivatives:
 
         if region == 'US':
 
-            url = '	https://developer.api.autodesk.com/modelderivative/v2/designdata/%s/metadata/%s' % (urn, guid)
+            url = self.api_url + '/modelderivative/v2/designdata/%s/metadata/%s' % (urn, guid)
 
         else:
 
-            url = '	https://developer.api.autodesk.com/modelderivative/v2/regions/eu/designdata/%s/metadata/%s' % (urn, guid)
+            url = self.api_url + '/modelderivative/v2/regions/eu/designdata/%s/metadata/%s' % (urn, guid)
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -144,11 +144,11 @@ class Derivatives:
 
         if region == 'US':
 
-            url = '	https://developer.api.autodesk.com/modelderivative/v2/designdata/%s/metadata/%s/properties' % (urn, guid)
+            url = self.api_url + '/modelderivative/v2/designdata/%s/metadata/%s/properties' % (urn, guid)
 
         else:
 
-            url = '	https://developer.api.autodesk.com/modelderivative/v2/regions/eu/designdata/%s/metadata/%s/properties' % (urn, guid)
+            url = self.api_url + '/modelderivative/v2/regions/eu/designdata/%s/metadata/%s/properties' % (urn, guid)
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)

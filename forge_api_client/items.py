@@ -5,7 +5,7 @@ class Items:
     @authorized
     def getItem(self, project_id, item_id):
 
-        url = 'https://developer.api.autodesk.com/data/v1/projects/%s/items/%s' % (project_id, item_id)
+        url = self.api_url + '/data/v1/projects/%s/items/%s' % (project_id, item_id)
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -16,7 +16,7 @@ class Items:
     @authorized
     def getItemParent(self, project_id, item_id):
 
-        url = 'https://developer.api.autodesk.com/data/v1/projects/%s/items/%s/parent' % (project_id, item_id)
+        url = self.api_url + '/data/v1/projects/%s/items/%s/parent' % (project_id, item_id)
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -27,7 +27,7 @@ class Items:
     @authorized
     def getItemRefs(self, project_id, item_id):
 
-        url = 'https://developer.api.autodesk.com/data/v1/projects/%s/items/%s/refs' % (project_id, item_id)
+        url = self.api_url + '/data/v1/projects/%s/items/%s/refs' % (project_id, item_id)
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -38,7 +38,7 @@ class Items:
     @authorized
     def getItemRelationshipsLinks(self, project_id, item_id):
 
-        url = 'https://developer.api.autodesk.com/data/v1/projects/%s/items/%s/relationships/links' % (project_id, item_id)
+        url = self.api_url + '/data/v1/projects/%s/items/%s/relationships/links' % (project_id, item_id)
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -49,7 +49,7 @@ class Items:
     @authorized
     def getItemRelationshipsRefs(self, project_id, item_id):
 
-        url = 'https://developer.api.autodesk.com/data/v1/projects/%s/items/%s/relationships/refs' % (project_id, item_id)
+        url = self.api_url + '/data/v1/projects/%s/items/%s/relationships/refs' % (project_id, item_id)
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -60,7 +60,7 @@ class Items:
     @authorized
     def getItemTip(self, project_id, item_id):
 
-        url = 'https://developer.api.autodesk.com/data/v1/projects/%s/items/%s/tip' % (project_id, item_id)
+        url = self.api_url + '/data/v1/projects/%s/items/%s/tip' % (project_id, item_id)
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -71,7 +71,7 @@ class Items:
     @authorized
     def getItemVersions(self, project_id, item_id):
 
-        url = 'https://developer.api.autodesk.com/data/v1/projects/%s/items/%s/versions' % (project_id, item_id)
+        url = self.api_url + '/data/v1/projects/%s/items/%s/versions' % (project_id, item_id)
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -82,7 +82,7 @@ class Items:
     @authorized
     def patchItem(self, project_id, item_id, body):
 
-        url = 'https://developer.api.autodesk.com/data/v1/projects/%s/items/%s' % (project_id, item_id)
+        url = self.api_url + '/data/v1/projects/%s/items/%s' % (project_id, item_id)
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token),
@@ -96,7 +96,7 @@ class Items:
     @authorized
     def postItem(self, project_id, body):
 
-        url = 'https://developer.api.autodesk.com/data/v1/projects/%s/items' % (project_id)
+        url = self.api_url + '/data/v1/projects/%s/items' % (project_id)
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token),
@@ -110,7 +110,7 @@ class Items:
     @authorized
     def postItemRelationshipsRefs(self, project_id, item_id, body):
 
-        url = '	https://developer.api.autodesk.com/data/v1/projects/%s/items/%s/relationships/refs' % (project_id, item_id)
+        url = self.api_url + '/data/v1/projects/%s/items/%s/relationships/refs' % (project_id, item_id)
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token),

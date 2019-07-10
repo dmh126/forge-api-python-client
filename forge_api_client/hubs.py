@@ -5,7 +5,7 @@ class Hubs:
     @authorized
     def getHubs(self):
 
-        url = 'https://developer.api.autodesk.com/project/v1/hubs'
+        url = self.api_url + '/project/v1/hubs'
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
@@ -16,7 +16,7 @@ class Hubs:
     @authorized
     def getHub(self, hub_id):
 
-        url = 'https://developer.api.autodesk.com/project/v1/hubs/%s' % hub_id
+        url = self.api_url + '/project/v1/hubs/%s' % hub_id
 
         headers = {
             'Authorization': '%s %s' % (self.token_type, self.access_token)
