@@ -43,6 +43,14 @@ buckets = fac.getBuckets()
 print( buckets )
 ```
 
+**Tests**
+
+```
+export FORGE_CLIENT_ID=<your_forge_client_id>
+export FORGE_CLIENT_SECRET=<your_forge_client_secret>
+python -m unittest
+```
+
 **Documentation**
 
 Group | Method | Parameters | Endpoint | Note
